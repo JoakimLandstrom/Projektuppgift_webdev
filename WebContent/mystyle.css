@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+body{
+	width: 100%;
+	height: 100%;
+}
+.navbar-default{
+	margin: 0px;
+	text-align: center;
+	height: 17vh;
+}
+a{
+	float: left;
+	padding-left: 1vw;
+	padding-right: 1vw;
+}
+
+.links{
+	margin-top: 1vw;
+	text-align: center;
+	display: inline-block;
+	
+}
+.content{
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	margin-top: 3vw;
+	margin-left: 5vw;
+	height: 60vh;
+	
+}
+.apicontent{
+	float: left;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	margin-top: 3vw;
+	margin-left: 5vw;
+	height: 60vh;
+}
