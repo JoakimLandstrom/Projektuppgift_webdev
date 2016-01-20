@@ -37,7 +37,6 @@ public class SetToDB {
 				if(con !=null)con.close();
 			}catch(Exception e){}
 		}
-		System.out.println("Check the db!");
 	}
 }
 

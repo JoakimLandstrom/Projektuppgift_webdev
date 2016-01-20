@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.db.SetToDB;
 import se.webdev.ju15.model.DataBean;
 
@@ -22,9 +23,11 @@ public class Controller extends HttpServlet {
 		String name = req.getParameter("name");
 		String com = req.getParameter("comment");
 		SetToDB sdb = new SetToDB();
+		GetFromDB gdb = new GetFromDB();
 		DataBean nb = new DataBean(name, com);
 		try {
 			sdb.writeBean(nb);
+			gdb.getDataFromDb();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
