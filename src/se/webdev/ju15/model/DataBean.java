@@ -1,4 +1,4 @@
-package se.webdev.ju15.bean;
+package se.webdev.ju15.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,20 +11,20 @@ public class DataBean {
 	String date = "";
 	int votes = 0;
 	
-	public DataBean(int id, String name, String message, String date, int votes) {
-		
-		this.id = id;
+	public DataBean(String name, String message) {	
+		this.id = 99;
 		this.name = name;
+		this.date="12/12/12";
+		this.votes = 1;
 		this.message = message;
-		this.date = date;
-		this.votes = votes;
+		//Took away parameters to simplify the bean making process for DB testing.
 	}
 
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class DataBean {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class DataBean {
 	 * @return the message
 	 */
 	public String getMessage() {
-		return message;
+		return this.message;
 	}
 
 	/**
@@ -65,20 +65,20 @@ public class DataBean {
 	/**@author Joakim
 	 * @return the date
 	 */
-	public LocalDate getDate() {
+	public String getDate() {
 		
-		LocalDate ld = null;
+//		LocalDate ld = null;
+//		
+//		try{
+//			
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM u, yyyy");
+//		ld = LocalDate.parse(date, formatter);
+//		
+//		}catch(Exception e){
+//			System.out.println("getDate() found exception");
+//		}
 		
-		try{
-			
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM u, yyyy");
-		ld = LocalDate.parse(date, formatter);
-		
-		}catch(Exception e){
-			System.out.println("getDate() found exception");
-		}
-		
-		return ld;
+		return this.date;
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class DataBean {
 	 * @return the votes
 	 */
 	public int getVotes() {
-		return votes;
+		return this.votes;
 	}
 
 	/**

@@ -29,7 +29,7 @@
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 
-  
+	
    
 </script>
 </head>
@@ -50,11 +50,19 @@
 		</ul>
 	</div>
 	</nav>
+	
+
 
 	<div class="col-md-7 content" id="test"></div>
 	<div class="col-md-3 apicontent" id="googleMap"></div>
-
-
+	
+	<div id="comments">
+		<form action="/Projektuppgift_webdev/Submit" method="post" name="submission">
+			<p>Name: </p><input type="text" name="name" maxlength="50">
+			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
+			<input type="submit" name="submission">
+		</form>
+	</div>
 
 
 </body>

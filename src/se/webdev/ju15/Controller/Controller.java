@@ -1,6 +1,7 @@
 package se.webdev.ju15.Controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,38 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import se.webdev.ju15.db.SetToDB;
+import se.webdev.ju15.model.DataBean;
+
 public class Controller extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
 		
-		RequestDispatcher rd = null;
-		HttpSession session = null;
-		session = req.getSession(false);
-		
-		if(session == null){
-			session = req.getSession(true);
-		}
-		
-		
-		
-		rd = req.getRequestDispatcher("index.jsp");
-		rd.forward(req, resp);
-	}
-
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		String path = "/index.jsp";
+		String name = req.getParameter("name");
+		String com = req.getParameter("comment");
+		SetToDB sdb = new SetToDB();
+		DataBean nb = new DataBean(name, com);
+		try {
+			sdb.writeBean(nb);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
+		dispatcher.forward(req, resp);
 	}
 
 
