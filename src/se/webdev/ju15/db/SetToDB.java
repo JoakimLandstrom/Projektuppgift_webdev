@@ -38,6 +38,9 @@ public class SetToDB {
 			}catch(Exception e){}
 		}
 	}
+	public static void writeMixedTypeBean(DataBean db){
+		
+	}
 }
 
 //("insert into channels values"+

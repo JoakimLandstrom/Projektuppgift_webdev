@@ -27,17 +27,9 @@
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
-
 </script>
 </head>
 <body>
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "se.webdev.ju15.model.DataBean" %>
-
-<%
-ArrayList<DataBean> sortedComments = (ArrayList) session.getAttribute("sortedComments");
-ArrayList<DataBean> recentComments = (ArrayList) session.getAttribute("unsortedComments");
-%>
 
 	<nav class="navbar navbar-default">
 	<h1>Travel Diary</h1>
@@ -54,25 +46,8 @@ ArrayList<DataBean> recentComments = (ArrayList) session.getAttribute("unsortedC
 	</div>
 	</nav>
 	
-	<div id="commentList">
-		<form action="/Projektuppgift_webdev/Submit" name="vote">
-			<ul>
-				<li><p>Highest rated comments</p></li>
-				<li><p><%= sortedComments.get(0).getName() %></p><input type="submit" value="0"></li>
-				<li><p><%= sortedComments.get(1).getName() %></p><input type="submit" value="1"></li>
-				<li><p><%= sortedComments.get(2).getName() %></p><input type="submit" value="2"></li>
-				<li><p>Recent comments</p></li>
-				<li><p><%= recentComments.get(0).getName() %></p><input type="submit" value="3"></li>
-				<li><p><%= recentComments.get(1).getName() %></p><input type="submit" value="4"></li>
-				<li><p><%= recentComments.get(2).getName() %></p><input type="submit" value="5"></li>
-				<li><p><%= recentComments.get(3).getName() %></p><input type="submit" value="6"></li>
-				<li><p><%= recentComments.get(4).getName() %></p><input type="submit" value="7"></li>
-				<li><p><%= recentComments.get(5).getName() %></p><input type="submit" value="8"></li>
-				<li><p><%= recentComments.get(6).getName() %></p><input type="submit" value="9"></li>
-			</ul>
-		</form>
-	</div>
-	
+
+
 	<div class="col-md-7 content" id="test"></div>
 	<div class="col-md-3 apicontent" id="googleMap"></div>
 	

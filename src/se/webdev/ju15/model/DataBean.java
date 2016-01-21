@@ -11,11 +11,10 @@ public class DataBean {
 	String date = "";
 	int votes = 0;
 	
-	public DataBean(String name, String message) {	
-		this.id = 99;
+	public DataBean(int id, String name, String message, int votes) {	
+		this.id = id;
 		this.name = name;
-		this.date="12/12/12";
-		this.votes = 1;
+		this.votes = votes;
 		this.message = message;
 		//Took away parameters to simplify the bean making process for DB testing.
 	}
