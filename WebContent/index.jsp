@@ -12,28 +12,20 @@
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Stockholm</title>
-<script>
-	function initialize() {
-		var mapProp = {
-			center : new google.maps.LatLng(59.32932, 18.06858),
-			zoom : 9,
-			mapTypeId : google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(document.getElementById("googleMap"),
-				mapProp);
-	}
 
-	google.maps.event.addDomListener(window, 'load', initialize);
-
-
-  
-   
-</script>
 </head>
-<body>
+<body onload="gmapinit()">
+
+<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "se.webdev.ju15.bean.DataBean" %>
+
+<%
+ArrayList<DataBean> sortedComments = (ArrayList<DataBean>) session.getAttribute("sortedComments");
+ArrayList<DataBean> recentComments = (ArrayList<DataBean>) session.getAttribute("unsortedComments");
+%>
+
 
 
 	<nav class="navbar navbar-default">
@@ -42,9 +34,9 @@
 		<ul class="nav navbar-nav navbar-center">
 			<a href="#"><div>Post</div></a>
 		</ul>
-		<a href="#"><div>Hot</div></a>
+		<a href="#"><div>Highest rating</div></a>
 		</ul>
-		<a href="#"><div>Newest</div></a>
+		<a href="#"><div>New</div></a>
 		</ul>
 		<a href="#"><div>FAQ</div></a>
 		</ul>
@@ -52,10 +44,27 @@
 	</nav>
 
 	<div class="col-md-7 content" id="test"></div>
-	<div class="col-md-3 apicontent" id="googleMap"></div>
+	<div class="col-md-3 apicontent" id="map"></div>
+	
+	<div id="comments">
+		<form action="#" method="post" name="submission">
+			<p>Name: </p><input type="text" name="name" maxlength="50">
+			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
+			<input type="submit" name="submission">
+		</form>
+	</div>
+	
+	<div id="commentList">
+		<form action="/Projektuppgift_webdev/Submit" name="vote">
+			<ul>
+			<li><p>Highest rated comments</p></li>
+				<li><p><%= sortedComments.get(0).getName() %></p><input type="submit" value="0"></li>
+				</ul>
+		</form>
+	</div>
 
 
 
-
+<script type = "text/javascript" src = "main.js"></script>
 </body>
 </html>

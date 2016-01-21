@@ -13,7 +13,7 @@ import se.webdev.ju15.bean.DataBean;
 
 public class SetToDB {
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static final String JDBC_URL = "jdbc:derby:c:/Users/joaki/Desktop/Front-End/WebdevDB:create=true;user=webdev;password=web";
+	public static final String JDBC_URL = "jdbc:derby:C:/Users/joaki/Desktop/Front-End/Projektuppgift_webdev/DB:create=true;user=webdev;password=web";
 	public static final String SQL_STATEMENT = "select * from channels";
 	
 	public void writeBean(DataBean db) throws SQLException{
@@ -25,7 +25,6 @@ public class SetToDB {
 			con.createStatement().execute("insert into STORIES values"
 					+ "('"+db.getId()+"',"
 					+ "'"+db.getName()+"',"
-					+ "'"+db.getDate()+"',"
 					+ "'"+db.getVotes()+"',"
 					+ "'"+db.getMessage()+"')"
 					);

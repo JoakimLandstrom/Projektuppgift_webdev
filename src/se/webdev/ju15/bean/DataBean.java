@@ -2,36 +2,44 @@ package se.webdev.ju15.bean;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 public class DataBean {
-	
+
 	int id = 0;
 	String name = "";
 	String message = "";
 	String date = "";
 	int votes = 0;
-	
-	public DataBean(int id, String name, String message, String date, int votes) {
+	String location = "";
+
+	public DataBean(String id, String name, String message) {
+		try{
+			
+		this.id = Integer.parseInt(id);
 		
-		this.id = id;
+		}catch(NullPointerException e){
+			System.out.println("Exception in databean constructor");
+		}
+	
 		this.name = name;
 		this.message = message;
-		this.date = date;
-		this.votes = votes;
 	}
 
 	/**
 	 * @return the id
 	 */
-	public int getId() {
-		return id;
+	public Integer getId() {
+		return (Integer)(id);
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
+
 	}
 
 	/**
@@ -42,7 +50,8 @@ public class DataBean {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -56,54 +65,68 @@ public class DataBean {
 	}
 
 	/**
-	 * @param message the message to set
+	 * @param message
+	 *            the message to set
 	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-	/**@author Joakim
+	/**
 	 * @return the date
 	 */
 	public LocalDate getDate() {
-		
+
 		LocalDate ld = null;
-		
-		try{
-			
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM u, yyyy");
-		ld = LocalDate.parse(date, formatter);
-		
-		}catch(Exception e){
+
+		try {
+
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM u, yyyy");
+			ld = LocalDate.parse(date, formatter);
+
+		} catch (Exception e) {
 			System.out.println("getDate() found exception");
 		}
-		
+
 		return ld;
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param date
+	 *            the date to set
 	 */
 	public void setDate(String date) {
-		
-		
+
 		this.date = date;
 	}
 
 	/**
 	 * @return the votes
 	 */
-	public int getVotes() {
-		return votes;
+	public Integer getVotes() {
+		return (Integer)(votes);
 	}
 
 	/**
-	 * @param votes the votes to set
+	 * @param votes
+	 *            the votes to set
 	 */
 	public void setVotes(int votes) {
 		this.votes = votes;
 	}
-	
-	
+
+	/**
+	 * @return the location
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
+	}
 	
 }
