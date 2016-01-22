@@ -2,26 +2,25 @@
 /*
  * @Author Joakim
  */
+
+
 function gmapinit() {
-		var mapProp = {
-			center : new google.maps.LatLng(59.32932, 18.06858),
+		
+		var latlng = {lat: 59.32932, lng: 18.06858};
+		
+		var map = new google.maps.Map(document.getElementById("map"), {
+			center : latlng,
 			zoom : 9,
 			mapTypeId : google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(document.getElementById("map"),
-				mapProp);
+		});
+		
+		var marker = new google.maps.Marker({
+		    position: position,
+		    map: map,
+		    title: ''
+		  });
+				
 	}
 
 	google.maps.event.addDomListener(window, 'load', gmapinit);
 
-xmlhttp = new XMLHttpRequest();
-
-xmlhttp.onreadystatechange = 
-	function(){
-	if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		document.getElementById("")
-	}
-}
-
-xmlhttp.open("GET", "index.jsp", true);
-xmlhttp.send();

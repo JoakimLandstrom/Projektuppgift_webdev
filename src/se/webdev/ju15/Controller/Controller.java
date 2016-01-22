@@ -29,7 +29,7 @@ public class Controller extends HttpServlet {
 		String com = req.getParameter("comment");
 		SetToDB sdb = new SetToDB();
 		GetFromDB gdb = new GetFromDB();
-		DataBean nb = new DataBean("1", name, com, "1");
+		DataBean nb = new DataBean("1", name, com, "Stockholm", "1");
 		SortFunctions sort = new SortFunctions();
 		
 		
@@ -44,7 +44,7 @@ public class Controller extends HttpServlet {
 		
 		sort.random(list);
 		for (DataBean dataBean : list) {
-			System.out.println(dataBean.getName());
+			System.out.println(dataBean.getName() + dataBean.getId());
 		}
 		
 //		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);

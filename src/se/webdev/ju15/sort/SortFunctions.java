@@ -58,6 +58,14 @@ public class SortFunctions {
 
 		return list;
 	}
-
 	
+	public int newId(ArrayList<DataBean> list){
+		
+		Collections.sort(list, (o1,o2) -> o1.getId().compareTo(o2.getId()));
+		
+		int id = list.get(0).getId() +1;
+		
+		return id;
+				
+	}
 }
