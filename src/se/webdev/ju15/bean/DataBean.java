@@ -122,4 +122,8 @@ public class DataBean {
 		this.location = location;
 	}
 	
+	public void voteForBean(){
+		votes += 1;
+	}
+	
 }

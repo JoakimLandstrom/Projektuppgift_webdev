@@ -49,7 +49,7 @@ public class SetToDB {
 		try{
 			Class.forName(DRIVER);
 			con  = DriverManager.getConnection(JDBC_URL);
-			con.createStatement().executeUpdate("");
+			con.createStatement().executeUpdate("UPDATE message SET votes='"+bean.getVotes()+"'WHERE id = " + bean.getId());
 		}catch(ClassNotFoundException n){
 			
 		}finally{
