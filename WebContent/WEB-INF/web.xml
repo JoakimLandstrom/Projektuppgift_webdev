@@ -11,13 +11,27 @@
   </welcome-file-list>
   
   <servlet>
-  	<servlet-name>SubmitComment</servlet-name>
-  	<servlet-class>se.webdev.ju15.Controller.Controller</servlet-class>
+    <servlet-name>SubmitComment</servlet-name>
+    <servlet-class>se.webdev.ju15.Controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitComment</servlet-name>
+    <url-pattern>/submit</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>ShowComment</servlet-name>
+   <servlet-class>se.webdev.ju15.Controller.Show</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-  	<servlet-name>SubmitComment</servlet-name>
-  	<url-pattern>/submit</url-pattern>
+   <servlet-mapping>
+    <servlet-name>ShowComment</servlet-name>
+    <url-pattern>/show</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+  
   
 </web-app>

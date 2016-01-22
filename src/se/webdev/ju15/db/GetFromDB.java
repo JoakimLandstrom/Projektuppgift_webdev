@@ -14,7 +14,7 @@ public class GetFromDB {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:/Users/daniel/Documents/Java/gitProjects/Projektuppgift_webdev/DB/TravelDb;create=true;";
-	public static final String SQL_STATEMENT = "select * from Stories";
+	public static final String SQL_STATEMENT = "select * from message";
 
 	public ArrayList<DataBean> getDataFromDb() throws SQLException {
 
@@ -34,8 +34,8 @@ public class GetFromDB {
 			list = new ArrayList<DataBean>();
 			
 			while (resultSet.next()) {
-				db = new DataBean(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
-						resultSet.getString(4));
+				db = new DataBean(resultSet.getString(1),resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),
+						resultSet.getString(5));
 				list.add(db);
 	
 				rowCounter++;

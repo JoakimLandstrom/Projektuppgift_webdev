@@ -12,9 +12,10 @@ public class DataBean {
 	int votes = 0;
 	String location = "";
 
-	public DataBean(String id, String name, String message, String votes) {
+	public DataBean(String id, String name, String message,String location, String votes) {
 		this.name = name;
 		this.message = message;
+		this.location = location;
 		try{
 			
 		this.id = Integer.parseInt(id);
@@ -119,6 +120,10 @@ public class DataBean {
 	 */
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public void voteForBean(){
+		votes += 1;
 	}
 	
 }

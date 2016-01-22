@@ -24,8 +24,10 @@
 <%@ page import = "se.webdev.ju15.Controller.Controller" %>
 
 <%
-ArrayList<DataBean> sorted = new ArrayList<DataBean>();
-ArrayList<DataBean> highest = new ArrayList<DataBean>();
+ArrayList<DataBean> sorted = (ArrayList<DataBean>) session.getAttribute("list");
+ArrayList<DataBean> highest = (ArrayList<DataBean>) session.getAttribute("highList");
+int size = highest.size()-1;
+System.out.println(sorted.get(0).getName());
 %>
 
 
@@ -45,7 +47,30 @@ ArrayList<DataBean> highest = new ArrayList<DataBean>();
 	</div>
 	</nav>
 	
-	<div class="col-md-7 content" id="test"></div>
+	<div class="col-md-7 content" id="test">
+
+	<ul>
+		<li><p>Highest ratings</p></li>
+		<li><p><%=sorted.get(0).getName()+": "+sorted.get(0).getMessage() %></p></li>
+		<li><p><%= sorted.get(1).getName()+": "+sorted.get(1).getMessage() %></p></li>
+		<li><p><%= sorted.get(2).getName()+": "+sorted.get(2).getMessage() %></p></li>
+		<li><p>Other reviews</p></li>
+		<li><p><%=highest.get(0).getName()+": "+highest.get(0).getMessage() %></p>
+		<li><p><%=highest.get(1).getName()+": "+highest.get(1).getMessage() %></p>
+		<li><p><%=highest.get(2).getName()+": "+highest.get(2).getMessage() %></p>
+		<li><p><%=highest.get(3).getName()+": "+highest.get(3).getMessage() %></p>
+		<li><p><%=highest.get(4).getName()+": "+highest.get(4).getMessage() %></p>
+		<li><p><%=highest.get(5).getName()+": "+highest.get(5).getMessage() %></p>
+		<li><p><%=highest.get(size-1).getName()+": "+highest.get(size-1).getMessage() %></p>
+		<li><p><%=highest.get(size).getName()+": "+highest.get(size).getMessage() %></p>
+		
+	</ul>
+
+</div>
+	
+	
+	
+	</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 	
 	<div id="comments">
