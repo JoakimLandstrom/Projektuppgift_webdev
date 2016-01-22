@@ -8,10 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.SortingFocusTraversalPolicy;
 
 import se.webdev.ju15.bean.DataBean;
 import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.db.SetToDB;
+import se.webdev.ju15.sort.SortFunctions;
 
 public class Controller extends HttpServlet {
 
@@ -28,6 +30,8 @@ public class Controller extends HttpServlet {
 		SetToDB sdb = new SetToDB();
 		GetFromDB gdb = new GetFromDB();
 		DataBean nb = new DataBean("1", name, com, "1");
+		SortFunctions sort = new SortFunctions();
+		
 		
 		
 		try {
@@ -38,9 +42,11 @@ public class Controller extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		sort.random(list);
 		for (DataBean dataBean : list) {
-			System.out.println(dataBean.getName() +" " + dataBean.getId());
+			System.out.println(dataBean.getName());
 		}
+		
 //		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 //		dispatcher.forward(req, resp);
 	}
