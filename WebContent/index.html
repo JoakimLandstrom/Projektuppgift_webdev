@@ -1,6 +1,4 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,15 +16,6 @@
 
 </head>
 <body onload="gmapinit()">
-
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "se.webdev.ju15.model.DataBean" %>
-<%@ page import = "se.webdev.ju15.Controller.Controller" %>
-
-<%
-ArrayList<DataBean> sorted = new ArrayList<DataBean>();
-ArrayList<DataBean> highest = new ArrayList<DataBean>();
-%>
 
 
 
@@ -52,7 +41,10 @@ ArrayList<DataBean> highest = new ArrayList<DataBean>();
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
 			<p>Name: </p><input type="text" name="name" maxlength="50">
 			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
-			<input type="submit" name="submission">
+			<input type="submit" name="submission" value="submit">
+		</form>
+		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
+			<p>Show conversations</p><input type="submit" name="show" value="show">
 		</form>
 	</div>
 

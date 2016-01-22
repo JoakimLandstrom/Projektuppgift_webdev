@@ -17,7 +17,7 @@
   
   <servlet-mapping>
   	<servlet-name>SubmitComment</servlet-name>
-  	<url-pattern>/Submit</url-pattern>
+  	<url-pattern>/submit</url-pattern>
   </servlet-mapping>
   
 </web-app>
