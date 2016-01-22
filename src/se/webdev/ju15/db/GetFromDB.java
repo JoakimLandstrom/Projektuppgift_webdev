@@ -13,11 +13,12 @@ import se.webdev.ju15.bean.DataBean;
 public class GetFromDB {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static final String JDBC_URL = "jdbc:derby:c:/Users/joaki/Desktop/Front-End/Projektuppgift_webdev/DB;create=true;user=webdev;password=web";
-	public static final String SQL_STATEMENT = "select * from Stories";
+	public static final String JDBC_URL = "jdbc:derby:C:/Users/joaki/Desktop/Front-End/Projektuppgift_webdev/DB/TravelDb;create=true;";
+	public static final String SQL_STATEMENT = "select * from STORIES";
 	
 	public ArrayList<DataBean> getDataFromDb() throws SQLException{
-		ArrayList<DataBean> list = new ArrayList<DataBean>();
+		
+		ArrayList<DataBean> list = null;
 		Connection con = null;
 		Statement stmt = null;
 		try {
@@ -28,14 +29,14 @@ public class GetFromDB {
 			ResultSetMetaData rsMeta = resultSet.getMetaData();
 			int columnCount = rsMeta.getColumnCount();
 			int rowCounter=0;
+			DataBean db = null;
+			list = new ArrayList<DataBean>();
 			while(resultSet.next()){
-				System.out.print("Row: "+rowCounter);
-				DataBean db = null;
+//				System.out.print("Row: "+rowCounter);
 				for(int x=1; x<=columnCount; x++){
-					System.out.print(" "+resultSet.getString(x));
-					db = new DataBean(resultSet.getString(1), resultSet.getString(2), resultSet.getString(5));
+//					System.out.print(" "+resultSet.getString(x));
+					db = new DataBean(resultSet.getString(1), resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
 					list.add(db);
-					
 				}
 				System.out.println();
 				rowCounter++;

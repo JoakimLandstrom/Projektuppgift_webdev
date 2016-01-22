@@ -2,7 +2,6 @@ package se.webdev.ju15.bean;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 
 public class DataBean {
 
@@ -13,17 +12,19 @@ public class DataBean {
 	int votes = 0;
 	String location = "";
 
-	public DataBean(String id, String name, String message) {
+	public DataBean(String id, String name, String message, String votes) {
+		this.name = name;
+		this.message = message;
 		try{
 			
 		this.id = Integer.parseInt(id);
+		this.votes = Integer.parseInt(votes);
 		
-		}catch(NullPointerException e){
+		}catch(Exception e){
+			e.printStackTrace();
 			System.out.println("Exception in databean constructor");
 		}
 	
-		this.name = name;
-		this.message = message;
 	}
 
 	/**
@@ -75,20 +76,11 @@ public class DataBean {
 	/**
 	 * @return the date
 	 */
-	public LocalDate getDate() {
+	public String getDate() {
 
-		LocalDate ld = null;
+	
 
-		try {
-
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM u, yyyy");
-			ld = LocalDate.parse(date, formatter);
-
-		} catch (Exception e) {
-			System.out.println("getDate() found exception");
-		}
-
-		return ld;
+		return "11/11/11";
 	}
 
 	/**

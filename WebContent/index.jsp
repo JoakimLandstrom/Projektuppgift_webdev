@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -20,50 +21,41 @@
 
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "se.webdev.ju15.bean.DataBean" %>
+<%@ page import = "se.webdev.ju15.Controller.Controller" %>
 
 <%
-ArrayList<DataBean> sortedComments = (ArrayList<DataBean>) session.getAttribute("sortedComments");
-ArrayList<DataBean> recentComments = (ArrayList<DataBean>) session.getAttribute("unsortedComments");
+
 %>
 
 
 
-	<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
 	<h1>Travel Diary</h1>
 	<div class=links>
 		<ul class="nav navbar-nav navbar-center">
 			<a href="#"><div>Post</div></a>
 		</ul>
-		<a href="#"><div>Highest rating</div></a>
+		<a href="#"><div>Hot</div></a>
 		</ul>
-		<a href="#"><div>New</div></a>
+		<a href="#"><div>Newest</div></a>
 		</ul>
 		<a href="#"><div>FAQ</div></a>
 		</ul>
 	</div>
 	</nav>
+	
+
 
 	<div class="col-md-7 content" id="test"></div>
 	<div class="col-md-3 apicontent" id="map"></div>
 	
 	<div id="comments">
-		<form action="#" method="post" name="submission">
+		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
 			<p>Name: </p><input type="text" name="name" maxlength="50">
 			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
 			<input type="submit" name="submission">
 		</form>
 	</div>
-	
-	<div id="commentList">
-		<form action="/Projektuppgift_webdev/Submit" name="vote">
-			<ul>
-			<li><p>Highest rated comments</p></li>
-				<li><p><%= sortedComments.get(0).getName() %></p><input type="submit" value="0"></li>
-				</ul>
-		</form>
-	</div>
-
-
 
 <script type = "text/javascript" src = "main.js"></script>
 </body>
