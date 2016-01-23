@@ -22,9 +22,7 @@ public class SetToDB {
 		try {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(JDBC_URL);
-//			con.createStatement().execute("insert into message values" + "('" + db.getName()
-//					+ "'," + "'" + db.getMessage() + "'," + "'" + db.getLocation() + "'," + "'" + db.getVotes() + "')");
-//			
+		
 			con.createStatement().execute("insert into message(TITLE, MESSAGE, LOCATION, VOTES) values ('" + db.getName() + "','" +  db.getMessage() +"', '" + db.getLocation() +"', '"+ db.getVotes()+"')");
 			System.out.println("Does it work?");
 		} catch (ClassNotFoundException e) {
@@ -41,7 +39,6 @@ public class SetToDB {
 	}
 	
 	public void updateDb(DataBean bean)throws SQLException{
-		System.out.println("Updating database " + bean.getId());
 		
 		Connection con = null;
 		Statement stmt = null;

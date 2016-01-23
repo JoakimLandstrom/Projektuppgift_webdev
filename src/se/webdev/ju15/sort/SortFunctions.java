@@ -13,31 +13,6 @@ public class SortFunctions {
 	
 	static ArrayList<DataBean> list = new ArrayList<DataBean>();
 	
-//	public SortFunctions() throws IOException{
-//		
-//	}
-	
-//	public static ArrayList<DataBean> loadData() {
-//		
-//		String line = "";
-//		String data[] = new String[3];
-//		
-//		String dir = System.getProperty("user.dir");
-//		try (BufferedReader reader = new BufferedReader(new FileReader(dir + "/Post/post.csv"))) {
-//			reader.readLine();
-//
-//			while ((line = reader.readLine()) != null) {
-//
-//				data = line.split(",");
-//				DataBean dataBean = new DataBean(data[0],data[1],data[2], data[3]);
-//				list.add(dataBean);
-//			}
-//		} catch (Exception e) {
-//			System.out.println("Couldnt load text file!");
-//			e.printStackTrace();
-//		}
-//		return list;
-//	}
 	
 	public ArrayList<DataBean> highestRating(ArrayList<DataBean> list) {
 

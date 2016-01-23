@@ -1,8 +1,5 @@
 package se.webdev.ju15.bean;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class DataBean {
 
 	int id = 0;
@@ -25,7 +22,11 @@ public class DataBean {
 			e.printStackTrace();
 			System.out.println("Exception in databean constructor");
 		}
+		
 	
+	}
+	public DataBean(){
+		
 	}
 
 	/**

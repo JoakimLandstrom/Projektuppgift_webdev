@@ -1,6 +1,7 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,17 +20,18 @@
 </head>
 <body onload="gmapinit()">
 
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "se.webdev.ju15.bean.DataBean" %>
-<%@ page import = "se.webdev.ju15.Controller.Controller" %>
+	<%@ page import="java.util.ArrayList"%>
+	<%@ page import="se.webdev.ju15.bean.DataBean"%>
+	<%@ page import="se.webdev.ju15.Controller.Controller"%>
 
-<%
+	<%
+		ArrayList<DataBean> sorted = (ArrayList<DataBean>) session.getAttribute("list");
+		ArrayList<DataBean> highest = (ArrayList<DataBean>) session.getAttribute("highList");
+		%>
 
-%>
 
 
-
-<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 	<h1>Travel Diary</h1>
 	<div class=links>
 		<ul class="nav navbar-nav navbar-center">
@@ -43,20 +45,38 @@
 		</ul>
 	</div>
 	</nav>
-	
+
+	<div class="col-md-7 content" id="test">
 
 
-	<div class="col-md-7 content" id="test"></div>
+		<ul>
+			<p>New posts</p>
+			<c:forEach var="current"
+				items="${sessionScope.list}">
+				<form action="/Projektuppgift_webdev/vote" method="POST">
+				<input value="${current.id }" type="hidden" name="vote">
+				 ${current.votes }
+				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-star"></span></button> ${current.name}: ${ current.message } <br>
+				</form>
+				<br>
+			</c:forEach>
+		</ul>
+
+	</div>
+
 	<div class="col-md-3 apicontent" id="map"></div>
-	
+
 	<div id="comments">
-		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
-			<p>Name: </p><input type="text" name="name" maxlength="50">
-			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
-			<input type="submit" name="submission">
+		<form action="/Projektuppgift_webdev/submit" method="POST"
+			name="submission">
+			<p>Name:</p>
+			<input type="text" name="name" maxlength="50">
+			<p>Comment:</p>
+			<input type="text" name="comment" maxlength="2000"> <input
+				type="submit" name="submission">
 		</form>
 	</div>
 
-<script type = "text/javascript" src = "main.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
