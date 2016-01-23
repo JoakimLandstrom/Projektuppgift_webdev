@@ -24,7 +24,7 @@ public class VoteController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "/index.jsp";
 		String objectId = req.getParameter("vote");
-		
+		String upordown = req.getParameter("upordown");
 		GetFromDB gdb = new GetFromDB();
 		SetToDB sdb = new SetToDB();
 		ArrayList<DataBean> list = new ArrayList<DataBean>();
@@ -33,7 +33,11 @@ public class VoteController extends HttpServlet {
 			list = gdb.getDataFromDb();
 			for (DataBean dataBean : list) {
 				if(objectId.equals(""+dataBean.getId())){
-					dataBean.voteForBean();
+					if(upordown.equals("up")){
+						dataBean.voteForBean();						
+					}else{
+						dataBean.hateBean();
+					}
 					sdb.updateDb(dataBean);
 				}
 			}
@@ -48,7 +52,6 @@ public class VoteController extends HttpServlet {
 		HttpSession session = req.getSession();
 		session.setAttribute("list", list);
 		session.setAttribute("vote", objectId);
-		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(req, resp);
 	}

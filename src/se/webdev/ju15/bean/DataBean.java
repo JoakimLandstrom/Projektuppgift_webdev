@@ -127,4 +127,8 @@ public class DataBean {
 		votes += 1;
 	}
 	
+	public void hateBean(){
+		votes -= 1;
+	}
+	
 }

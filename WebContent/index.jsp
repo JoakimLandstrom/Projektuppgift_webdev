@@ -55,8 +55,7 @@
 				items="${sessionScope.list}">
 				<form action="/Projektuppgift_webdev/vote" method="POST">
 				<input value="${current.id }" type="hidden" name="vote">
-				 ${current.votes }
-				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-star"></span></button> ${current.name}: ${ current.message } <br>
+				${current.votes }<button value ="up" name="upordown" type="submit">+</button><button value="down" name="upordown" type="submit">-</button> ${current.name}: ${ current.message } <br>
 				</form>
 				<br>
 			</c:forEach>
