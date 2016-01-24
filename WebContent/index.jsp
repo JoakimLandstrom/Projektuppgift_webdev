@@ -56,7 +56,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		<div class="col-md-2 content" id="firstDiv">
 			<ul id="name">
 				<li class="title">Highest ratings:</li>
-				<li><%= highList.get(0).getName() %></li><li><%= highList.get(0).getMessage() %></li>
+				<li><%= highList.get(0).getName() %></li><li>
 				<li><%= highList.get(1).getName() %></li>
 				<li><%= highList.get(2).getName() %></li>
 				<li class="title"><p>Recently added</p></li>
