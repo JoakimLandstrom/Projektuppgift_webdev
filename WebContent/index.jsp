@@ -24,59 +24,74 @@
 <%@ page import = "se.webdev.ju15.Controller.Controller" %>
 
 <%
-ArrayList<DataBean> sorted = (ArrayList<DataBean>) session.getAttribute("list");
-ArrayList<DataBean> highest = (ArrayList<DataBean>) session.getAttribute("highList");
-int size = highest.size()-1;
-System.out.println(sorted.get(0).getName());
+ArrayList<DataBean> highList = (ArrayList<DataBean>)(ArrayList<DataBean>) session.getAttribute("highList");
+ArrayList<DataBean> randomList = (ArrayList<DataBean>) session.getAttribute("randomList");
+ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
 %>
 
 
 
 <nav class="navbar navbar-default">
-	<h1>Travel Diary</h1>
-	<div class=links>
-		<ul class="nav navbar-nav navbar-center">
-			<a href="#"><div>Post</div></a>
-		</ul>
-		<a href="#"><div>Hot</div></a>
-		</ul>
-		<a href="#"><div>Newest</div></a>
-		</ul>
-		<a href="#"><div>FAQ</div></a>
-		</ul>
+	<h1>Backpacker diaries: </h1>
+		<div class=links>
+			<ul class="nav navbar-nav navbar-center">
+				<a href="#"><div>Stories</div></a>
+			</ul>
+			<a href="#"><div>Bars</div></a>
+			</ul>
+			<a href="#"><div>Clubs</div></a>
+			</ul>
+			<a href="#"><div>Restaurants</div></a>
+			</ul>
+			<a href="#"><div>Attractions</div></a>
+			</ul>
+			</ul>
+			<a href="#"><div></div></a>
+			</ul>
+			</ul>
+		</div>
 	</div>
 	</nav>
 	
-	<div class="col-md-7 content" id="test">
-
-	<ul>
-		<li><p>Highest ratings</p></li>
-		<li><p><%=sorted.get(0).getName()+": "+sorted.get(0).getMessage() %></p></li>
-		<li><p><%= sorted.get(1).getName()+": "+sorted.get(1).getMessage() %></p></li>
-		<li><p><%= sorted.get(2).getName()+": "+sorted.get(2).getMessage() %></p></li>
-		<li><p>Other reviews</p></li>
-		<li><p><%=highest.get(0).getName()+": "+highest.get(0).getMessage() %></p>
-		<li><p><%=highest.get(1).getName()+": "+highest.get(1).getMessage() %></p>
-		<li><p><%=highest.get(2).getName()+": "+highest.get(2).getMessage() %></p>
-		<li><p><%=highest.get(3).getName()+": "+highest.get(3).getMessage() %></p>
-		<li><p><%=highest.get(4).getName()+": "+highest.get(4).getMessage() %></p>
-		<li><p><%=highest.get(5).getName()+": "+highest.get(5).getMessage() %></p>
-		<li><p><%=highest.get(size-1).getName()+": "+highest.get(size-1).getMessage() %></p>
-		<li><p><%=highest.get(size).getName()+": "+highest.get(size).getMessage() %></p>
+		<div class="col-md-2 content" id="firstDiv">
+			<ul id="name">
+				<li class="title">Highest ratings:</li>
+				<li><%= highList.get(0).getName() %></li><li><%= highList.get(0).getMessage() %></li>
+				<li><%= highList.get(1).getName() %></li>
+				<li><%= highList.get(2).getName() %></li>
+				<li class="title"><p>Recently added</p></li>
+				<li><%=newList.get(0).getName() %></li>
+				<li><%=newList.get(1).getName() %></li>
+				<li><%=newList.get(2).getName() %></li>
+				<li><%=newList.get(3).getName() %></li>
+				<li class="title"><p>Other comments:</p></li>
+				<li><%=randomList.get(0).getName() %></li>
+				<li><%=randomList.get(1).getName() %></li>
+				<li><%=randomList.get(2).getName() %></li>
+				<li><%=randomList.get(3).getName() %></li>
+			</ul>
+		</div>
 		
-	</ul>
+		<div class="col-md-4 content" >
+			<p><%= highList.get(1).getMessage() %></p>
+			<p><%= highList.get(2).getMessage() %></p>
+			<p><%=randomList.get(0).getMessage() %></p>
+			<p><%=randomList.get(1).getMessage() %></p>
+			<p><%=randomList.get(2).getMessage() %></p>
+			<p><%=randomList.get(3).getMessage() %></p>
+			<p><%=newList.get(0).getMessage() %></p>
+			<p><%=newList.get(1).getMessage() %></p>
+			<p><%=newList.get(2).getMessage() %></p>
+			<p><%=newList.get(3).getMessage() %></p>
+		</div>
 
-</div>
-	
-	
-	
-	</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 	
-	<div id="comments">
+	<div class="col-md-4 comments">
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
-			<p>Name: </p><input type="text" name="name" maxlength="50">
-			<p>Comment: </p><input type="text" name="comment" maxlength="2000">
+			Be a part of the backpacker conversation: 
+			<div>Name:<br> <input type="text" name="name" maxlength="50"></div>
+			<div>Comment: <textarea rows="6" cols="125" name="comment"></textarea></div>
 			<input type="submit" name="submission">
 		</form>
 	</div>

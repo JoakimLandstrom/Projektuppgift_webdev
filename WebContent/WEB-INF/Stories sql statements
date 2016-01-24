@@ -1,0 +1,19 @@
+
+CREATE TABLE stories
+(
+id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+name varchar(25) NOT NULL,
+message varchar(3000),
+loc varchar(50),
+votes int,
+PRIMARY KEY (id)
+) ;
+
+select * from stories;
+
+insert int stories values(
+'daniel',
+'my message',
+'seattle',
+6
+)

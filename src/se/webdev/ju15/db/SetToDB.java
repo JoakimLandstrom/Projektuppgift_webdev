@@ -2,6 +2,7 @@ package se.webdev.ju15.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,11 +23,15 @@ public class SetToDB {
 		try {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(JDBC_URL);
-//			con.createStatement().execute("insert into message values" + "('" + db.getName()
-//					+ "'," + "'" + db.getMessage() + "'," + "'" + db.getLocation() + "'," + "'" + db.getVotes() + "')");
-//			
-			con.createStatement().execute("insert into message(TITLE, MESSAGE, LOCATION, VOTES) values ('" + db.getName() + "','" +  db.getMessage() +"', '" + db.getLocation() +"', '"+ db.getVotes()+"')");
-			System.out.println("Does it work?");
+			System.out.println("writing to the db");
+			PreparedStatement ps = con.prepareStatement(
+					"insert into stories(NAME, MESSAGE, LOC, VOTES) values(?,?,?,?)");
+			ps.setString(1, db.getName());
+			ps.setString(2, db.getMessage());
+			ps.setString(3, db.getLocation());
+			ps.setInt(4, db.getVotes());
+			ps.executeUpdate();
+				
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} finally {

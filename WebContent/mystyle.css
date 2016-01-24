@@ -3,6 +3,10 @@ body{
 	width: 100%;
 	height: 100%;
 }
+h1{
+	font-size: 52px;
+	font-family:Arial;
+}
 .navbar-default{
 	margin: 0px;
 	text-align: center;
@@ -20,12 +24,19 @@ a{
 	display: inline-block;
 	
 }
+#firstDiv{
+	margin-left:12vw;
+}
+
 .content{
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	margin-top: 3vw;
-	margin-left: 5vw;
-	height: 70vh;
+	height: 50vh;
+	font-family:Arial;
+	font-size: 14px;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	
 }
 .apicontent{
@@ -33,9 +44,21 @@ a{
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	margin-top: 3vw;
-	margin-left: 5vw;
-	height: 60vh;
+	height: 50vh;
 }
-#comments{
-	margin-left: 5vw;
+
+#name{
+	list-style-type: none;
 }
+.comments{
+	margin-left:20vw;
+	padding-bottom:2cm;
+}
+.title{
+	font-family:Arial;
+	font-size: 22px;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+

@@ -1,3 +1,19 @@
 ----------------------------------------------------------------
-Fri Jan 22 13:25:48 CET 2016: Shutting down Derby engine
+Sat Jan 23 12:07:44 CET 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0152-6e2b-178a-000006fd7288 
+on database directory /Users/daniel/Documents/Java/gitProjects/Projektuppgift_webdev/DB/TravelDb with class loader sun.misc.Launcher$AppClassLoader@511d50c0 
+Loaded from file:/Users/daniel/Documents/Java/3rdPartySoftware/derby/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_65-b17
+user.dir=/Users/daniel/Documents/Java/gitProjects/Projektuppgift_webdev
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.10.5
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Jan 23 12:11:30 CET 2016: Shutting down Derby engine
+----------------------------------------------------------------
+Sat Jan 23 12:11:30 CET 2016:
+Shutting down instance a816c00e-0152-6e2b-178a-000006fd7288 on database directory /Users/daniel/Documents/Java/gitProjects/Projektuppgift_webdev/DB/TravelDb with class loader sun.misc.Launcher$AppClassLoader@511d50c0 
 ----------------------------------------------------------------
