@@ -1,6 +1,4 @@
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet"
@@ -13,43 +11,46 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Stockholm</title>
-
+<link rel="stylesheet" type="text/css" href="index.css">
 </head>
-<body onload="gmapinit()">
+<body>
 
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'Backpacker diaries',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+  FB.ui(
+		  {
+		   method: 'share',
+		   href: 'https://developers.facebook.com/docs/'
+		 }, function(response){});
+  
+</script>
 
-	<nav class="navbar navbar-default">
-		<h1>The backpacker diaries: </h1>
-		<div class=links>
-			<ul class="nav navbar-nav navbar-center">
-				<a href="#"><div>Stories</div></a>
-			</ul>
-			<a href="#"><div>Bars</div></a>
-			</ul>
-			<a href="#"><div>Clubs</div></a>
-			</ul>
-			<a href="#"><div>Restaurants</div></a>
-			</ul>
-			<a href="#"><div>Attractions</div></a>
-			</ul>
-			</ul>
-			<a href="#"><div></div></a>
-			</ul>
-			</ul>
-		</div>
-	</nav>
-	
-	
-	<div class="col-md-7 content" id="test"></div>
-	<div class="col-md-3 apicontent" id="map"></div>
-	
-	<div id="comments">
-		<form action="/Projektuppgift_webdev/show" method="POST" name="submission">
-			<p>Show conversations</p><input type="submit" name="show" value="show">
-		</form>
+	<div class="navbar navbar-default">
+		<h1>The backpacker diaries</h1>
 	</div>
-
-<script type = "text/javascript" src = "main.js"></script>
+	
+	<div id="pics">
+		<div class="col-md-4 image"><a href="http://localhost:8080/Projektuppgift_webdev/show"><img src="pics/stock.png" alt="stockholm image not found">Stockholm</a></div>
+		<div class="col-md-4 image"><a href="http://localhost:8080/Projektuppgift_webdev/show"><img src="pics/malm.png" alt="malmo image not found">Malmö</a></div>
+		<div class="col-md-4 image"><a href="http://localhost:8080/Projektuppgift_webdev/show"><img src="pics/got.png" alt="gothenburg image not found">Gothenburg</a></div>
+	</div>
+	
 </body>
 </html>
+
+

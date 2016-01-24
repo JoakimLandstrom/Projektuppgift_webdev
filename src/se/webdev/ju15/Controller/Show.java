@@ -55,4 +55,7 @@ public class Show extends HttpServlet {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(req, resp);
 	}
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		doPost(req, resp);
+	}
 }

@@ -32,7 +32,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 
 
 <nav class="navbar navbar-default">
-	<h1>Backpacker diaries: </h1>
+	<h1>Stockholm diaries: </h1>
 		<div class=links>
 			<ul class="nav navbar-nav navbar-center">
 				<a href="#"><div>Stories</div></a>
@@ -72,7 +72,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 			</ul>
 		</div>
 		
-		<div class="col-md-4 content" >
+		<div class="col-md-3 content" >
 			<p><%= highList.get(1).getMessage() %></p>
 			<p><%= highList.get(2).getMessage() %></p>
 			<p><%=randomList.get(0).getMessage() %></p>
@@ -91,7 +91,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
 			Be a part of the backpacker conversation: 
 			<div>Name:<br> <input type="text" name="name" maxlength="50"></div>
-			<div>Comment: <textarea rows="6" cols="125" name="comment"></textarea></div>
+			<div>Comment: <textarea rows="6" cols="100" name="comment"></textarea></div>
 			<input type="submit" name="submission">
 		</form>
 	</div>
