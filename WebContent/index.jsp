@@ -17,6 +17,8 @@
 <title>Stockholm</title>
 
 </head>
+<script type="text/javascript" src="displayText.js"></script>
+<script type = "text/javascript" src = "main.js"></script>
 <body onload="gmapinit()">
 
 <%@ page import = "java.util.ArrayList" %>
@@ -28,8 +30,6 @@ ArrayList<DataBean> highList = (ArrayList<DataBean>)(ArrayList<DataBean>) sessio
 ArrayList<DataBean> randomList = (ArrayList<DataBean>) session.getAttribute("randomList");
 ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
 %>
-
-
 
 <nav class="navbar navbar-default">
 	<h1>Stockholm diaries: </h1>
@@ -56,7 +56,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		<div class="col-md-2 content" id="firstDiv">
 			<ul id="name">
 				<li class="title">Highest ratings:</li>
-				<li><%= highList.get(0).getName() %></li><li>
+				<li onclick="loadMessage();"><%= highList.get(0).getName() %></li><li>
 				<li><%= highList.get(1).getName() %></li>
 				<li><%= highList.get(2).getName() %></li>
 				<li class="title"><p>Recently added</p></li>
@@ -73,7 +73,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		</div>
 		
 		<div class="col-md-3 content" >
-			<p id="showText"></p>
+			<p id="showText" onclick="hideMessage();"></p>
 		</div>
 
 	<div class="col-md-3 apicontent" id="map"></div>
@@ -87,7 +87,6 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		</form>
 	</div>
 	
-<script type="text/javascript" src="displayText">	
-<script type = "text/javascript" src = "main.js"></script>
+
 </body>
 </html>

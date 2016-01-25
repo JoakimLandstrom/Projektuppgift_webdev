@@ -20,18 +20,22 @@
   </servlet-mapping>
   
   <servlet>
-   <servlet-name>ShowComment</servlet-name>
-   <servlet-class>se.webdev.ju15.Controller.Show</servlet-class>
+    <servlet-name>ShowComment</servlet-name>
+    <servlet-class>se.webdev.ju15.Controller.Show</servlet-class>
   </servlet>
-  
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>ShowComment</servlet-name>
     <url-pattern>/show</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>GetMessage</servlet-name>
+    <servlet-class>se.webdev.ju15.Controller.GetMessage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetMessage</servlet-name>
+    <url-pattern>/message</url-pattern>
+  </servlet-mapping>
   
-  
-  
-  
-  
+ 
 </web-app>
