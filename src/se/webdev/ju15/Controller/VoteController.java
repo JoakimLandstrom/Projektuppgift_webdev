@@ -27,11 +27,14 @@ public class VoteController extends HttpServlet {
 		String upordown = req.getParameter("upordown");
 		GetFromDB gdb = new GetFromDB();
 		SetToDB sdb = new SetToDB();
-		ArrayList<DataBean> list = new ArrayList<DataBean>();
+		ArrayList<DataBean> newlist = new ArrayList<DataBean>();
+		ArrayList<DataBean> highList = new ArrayList<DataBean>();
+		ArrayList<DataBean> entirelist = new ArrayList<DataBean>();
+		SortFunctions sort = new SortFunctions();
 		
 		try{
-			list = gdb.getDataFromDb();
-			for (DataBean dataBean : list) {
+			entirelist = gdb.getDataFromDb();
+			for (DataBean dataBean : entirelist) {
 				if(objectId.equals(""+dataBean.getId())){
 					if(upordown.equals("up")){
 						dataBean.voteForBean();						
@@ -41,16 +44,17 @@ public class VoteController extends HttpServlet {
 					sdb.updateDb(dataBean);
 				}
 			}
-			
+			newlist = gdb.getDataFromDb();
+			sort.newPosts(newlist);
+			highList = gdb.getDataFromDb();
+			sort.highestRating(highList);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		SortFunctions sort = new SortFunctions();
-		sort.highestRating(list);
-
 		HttpSession session = req.getSession();
-		session.setAttribute("list", list);
+		session.setAttribute("newList", newlist);
+		session.setAttribute("highList", highList);
 		session.setAttribute("vote", objectId);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(req, resp);

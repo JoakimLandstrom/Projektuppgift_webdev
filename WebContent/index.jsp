@@ -18,44 +18,67 @@
 <title>Stockholm</title>
 
 </head>
-<body onload="gmapinit()">
+<body onload="gmapinit(); time();">
 
 	<%@ page import="java.util.ArrayList"%>
 	<%@ page import="se.webdev.ju15.bean.DataBean"%>
 	<%@ page import="se.webdev.ju15.Controller.Controller"%>
 
 	<%
-		ArrayList<DataBean> sorted = (ArrayList<DataBean>) session.getAttribute("list");
-		ArrayList<DataBean> highest = (ArrayList<DataBean>) session.getAttribute("highList");
-		%>
-
+		ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
+		ArrayList<DataBean> highList = (ArrayList<DataBean>) session.getAttribute("highList");
+	%>
 
 
 	<nav class="navbar navbar-default">
-	<h1>Travel Diary</h1>
+	<h1>Stockholm diaries:</h1>
 	<div class=links>
+	<div id="clock"></div>
 		<ul class="nav navbar-nav navbar-center">
-			<a href="#"><div>Post</div></a>
+			<a href="#"><div>Stories</div></a>
 		</ul>
-		<a href="#"><div>Hot</div></a>
+		<a href="#"><div>Bars</div></a>
 		</ul>
-		<a href="#"><div>Newest</div></a>
+		<a href="#"><div>Clubs</div></a>
 		</ul>
-		<a href="#"><div>FAQ</div></a>
+		<a href="#"><div>Restaurants</div></a>
 		</ul>
+		<a href="#"><div>Attractions</div></a>
+		</ul>
+		</ul>
+		<a href="#"><div></div></a>
+		</ul>
+		</ul>
+	</div>
 	</div>
 	</nav>
 
-	<div class="col-md-7 content" id="test">
+	<div class="col-md-5 content">
+	
+	<ul>
+			<p>Highest rated posts</p>
+			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}">
+				<form action="/Projektuppgift_webdev/vote" method="POST" onClick="">
+					<input value="${current.id }" type="hidden" name="vote">
+					${current.votes }
+					<button value="up" name="upordown" type="submit">+</button>
+					<button value="down" name="upordown" type="submit">-</button>
+					${current.name}: ${ current.message } <br>
+				</form>
+					<br>
+			</c:forEach>
+		</ul>
 
 
 		<ul>
 			<p>New posts</p>
-			<c:forEach var="current"
-				items="${sessionScope.list}">
+			<c:forEach var="current" items="${sessionScope.newList}">
 				<form action="/Projektuppgift_webdev/vote" method="POST">
-				<input value="${current.id }" type="hidden" name="vote">
-				${current.votes }<button value ="up" name="upordown" type="submit">+</button><button value="down" name="upordown" type="submit">-</button> ${current.name}: ${ current.message } <br>
+					<input value="${current.id }" type="hidden" name="vote">
+					${current.votes }
+					<button value="up" name="upordown" type="submit">+</button>
+					<button value="down" name="upordown" type="submit">-</button>
+					${current.name}: ${ current.message } <br>
 				</form>
 				<br>
 			</c:forEach>
@@ -63,19 +86,21 @@
 
 	</div>
 
+	<div class="col-md-4 content" >
+			<p id="showText"></p>
+		</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 
-	<div id="comments">
-		<form action="/Projektuppgift_webdev/submit" method="POST"
-			name="submission">
-			<p>Name:</p>
-			<input type="text" name="name" maxlength="50">
-			<p>Comment:</p>
-			<input type="text" name="comment" maxlength="2000"> <input
-				type="submit" name="submission">
+	
+	<div class="col-md-3 comments">
+		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
+			Be a part of the backpacker conversation: 
+			<div>Name:<br> <input type="text" name="name" maxlength="50"></div>
+			<div>Comment: <textarea rows="6" cols="100" name="comment"></textarea></div>
+			<input type="submit" name="submission">
 		</form>
 	</div>
-
+	
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

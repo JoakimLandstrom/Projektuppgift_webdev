@@ -24,7 +24,7 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get request");
 		String path = "/index.jsp";
-		ArrayList<DataBean> list = new ArrayList<DataBean>();
+		ArrayList<DataBean> newlist = new ArrayList<DataBean>();
 		ArrayList<DataBean> highList = new ArrayList<DataBean>();
 		String name = req.getParameter("name");
 		String com = req.getParameter("comment");
@@ -35,16 +35,16 @@ public class Controller extends HttpServlet {
 			
 		try {
 			sdb.writeBean(nb);
-			list = gdb.getDataFromDb();
+			highList = gdb.getDataFromDb();
+			sort.highestRating(highList);
+			newlist = gdb.getDataFromDb();
+			sort.newPosts(newlist);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		sort.highestRating(list);
-		highList = sort.highestRating(list);
-
 		HttpSession session = req.getSession();
-		session.setAttribute("list", list);
+		session.setAttribute("newList", newlist);
 		session.setAttribute("highList", highList);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
