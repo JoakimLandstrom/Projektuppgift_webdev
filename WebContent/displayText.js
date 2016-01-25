@@ -1,6 +1,5 @@
 
-
-function loadMessage() {
+function loadMessage(x) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -8,9 +7,9 @@ function loadMessage() {
 		}
 	};
 
-	xhttp.open("GET", "/Projektuppgift_webdev/GetMessage", true);
+	var url ="/Projektuppgift_webdev/message/"+x;
+	xhttp.open("GET", url, true);
 	xhttp.send();
-	
 }
 
 function hideMessage(){

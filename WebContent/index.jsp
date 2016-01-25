@@ -11,6 +11,7 @@
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 	crossorigin="anonymous">
 <script src="http://use.edgefonts.net/poiret-one.js"></script>
+<script src="displayText.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -54,31 +55,34 @@
 	</nav>
 
 	<div class="col-md-5 content">
+
+<c:set var="salary" scope="session" value="${2000*2}"/>	
 	
 	<ul>
 			<p>Highest rated posts</p>
-			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}">
-				<form action="/Projektuppgift_webdev/vote" method="POST" onClick="">
-					<input value="${current.id }" type="hidden" name="vote">
+			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}" varStatus="loop">
+				<form action="/Projektuppgift_webdev/vote" method="POST" onclick="loadMessage('h'+'${loop.index}');">
+					<input value="${current.id}" type="hidden" name="vote">
 					${current.votes }
 					<button value="up" name="upordown" type="submit">+</button>
 					<button value="down" name="upordown" type="submit">-</button>
-					${current.name}: ${ current.message } <br>
+					${current.name}<br>
 				</form>
 					<br>
 			</c:forEach>
 		</ul>
 
+<%-- <c:forEach items="${chequeList}" var="cheque" varStatus="loop"> --%>
 
 		<ul>
 			<p>New posts</p>
-			<c:forEach var="current" items="${sessionScope.newList}">
-				<form action="/Projektuppgift_webdev/vote" method="POST">
-					<input value="${current.id }" type="hidden" name="vote">
+			<c:forEach var="current" begin="0" end="7" items="${sessionScope.newList}" varStatus="loop">
+				<form action="/Projektuppgift_webdev/vote" method="POST"  onclick="loadMessage('n'+'${loop.index}');">
+					<input value="${current.id }" type="hidden" name="vote" >
 					${current.votes }
 					<button value="up" name="upordown" type="submit">+</button>
 					<button value="down" name="upordown" type="submit">-</button>
-					${current.name}: ${ current.message } <br>
+					${current.name}<br>
 				</form>
 				<br>
 			</c:forEach>
@@ -87,7 +91,7 @@
 	</div>
 
 	<div class="col-md-4 content" >
-			<p id="showText"></p>
+			<p id="showText" onclick="hideMessage()"></p>
 		</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 

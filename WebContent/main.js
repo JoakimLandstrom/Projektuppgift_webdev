@@ -2,12 +2,12 @@
  * @Author Joakim
  */
 
-var location = function (location){
-	
-	var array = [location];
-	
-	return array;	
-}
+//var location = function (location){
+//	
+//	var array = [location];
+//	
+//	return array;	
+//}
 
 function gmapinit() {
 
@@ -23,11 +23,11 @@ function gmapinit() {
 	});
 	google.maps.event.addDomListener(window, 'load', gmapinit);
 
-	var marker = new google.maps.Marker({
-		position : location,
-		map : map
-	});
-	marker.setMap(map);
+//	var marker = new google.maps.Marker({
+//		position : location,
+//		map : map
+//	});
+//	marker.setMap(map);
 }
 
 function time() {

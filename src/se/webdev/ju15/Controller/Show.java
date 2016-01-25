@@ -32,8 +32,7 @@ public class Show extends HttpServlet {
 		GetFromDB gdb = new GetFromDB();
 		SortFunctions sort = new SortFunctions();
 		HttpSession session = req.getSession();
-		
-		
+
 		try {
 			highList = gdb.getDataFromDb();
 			sort.highestRating(highList);
