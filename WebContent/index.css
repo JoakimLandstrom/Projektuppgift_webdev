@@ -40,5 +40,8 @@ img{
 	border-color:white;
 	border-radius:50%;
 }
+.image img:hover{
+	opactiy: 0.6;
+}
 
 

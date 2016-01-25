@@ -73,16 +73,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		</div>
 		
 		<div class="col-md-3 content" >
-			<p><%= highList.get(1).getMessage() %></p>
-			<p><%= highList.get(2).getMessage() %></p>
-			<p><%=randomList.get(0).getMessage() %></p>
-			<p><%=randomList.get(1).getMessage() %></p>
-			<p><%=randomList.get(2).getMessage() %></p>
-			<p><%=randomList.get(3).getMessage() %></p>
-			<p><%=newList.get(0).getMessage() %></p>
-			<p><%=newList.get(1).getMessage() %></p>
-			<p><%=newList.get(2).getMessage() %></p>
-			<p><%=newList.get(3).getMessage() %></p>
+			<p id="showText"></p>
 		</div>
 
 	<div class="col-md-3 apicontent" id="map"></div>
@@ -96,6 +87,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		</form>
 	</div>
 	
+<script type="text/javascript" src="displayText">	
 <script type = "text/javascript" src = "main.js"></script>
 </body>
 </html>
