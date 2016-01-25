@@ -11,7 +11,7 @@ import se.webdev.ju15.model.DataBean;
 
 public class SetToDB {
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static final String JDBC_URL = "jdbc:derby:C:/Users/joaki/Desktop/Front-End/Projektuppgift_webdev/DB/TravelDb;create=true";
+	public static final String JDBC_URL = "jdbc:derby:/Users/daniel/Documents/Java/gitProjects/Projektuppgift_webdev/DB/TravelDb;create=true";
 	public static final String SQL_STATEMENT = "select * from message";
 
 	public void writeBean(DataBean db) throws SQLException {
