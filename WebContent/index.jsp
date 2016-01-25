@@ -87,7 +87,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 
 	<div class="col-md-3 apicontent" id="map"></div>
 	
-	<div class="col-md-4 comments">
+	<div class="col-md-3 comments">
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
 			Be a part of the backpacker conversation: 
 			<div>Name:<br> <input type="text" name="name" maxlength="50"></div>
@@ -95,7 +95,7 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 			<input type="submit" name="submission">
 		</form>
 	</div>
-
+	
 <script type = "text/javascript" src = "main.js"></script>
 </body>
 </html>

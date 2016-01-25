@@ -19,7 +19,7 @@ body{
 .navbar-default{
 	margin: 0px;
 	text-align: left;
-	padding-left:300px;
+	padding-left:14%;
 	height: 17vh;
 	background-color: #c1bfbd;
 	opacity:.8;
@@ -30,9 +30,9 @@ img{
 	height:210px;
 }
 #pics{
-	position:absolute;
+	position: fixed;
 	top: 35%;
-	left: 25%;
+	left: 13%;
 	color:white;
 }
 .image img{
