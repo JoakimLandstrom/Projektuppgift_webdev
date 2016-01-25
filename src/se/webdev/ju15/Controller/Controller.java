@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import se.webdev.ju15.model.DataBean;
 import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.db.SetToDB;
@@ -25,33 +24,28 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get request");
 		String path = "/index.jsp";
-		ArrayList<DataBean> entireList = new ArrayList<DataBean>();
+		ArrayList<DataBean> newlist = new ArrayList<DataBean>();
 		ArrayList<DataBean> highList = new ArrayList<DataBean>();
-		ArrayList<DataBean> randomList = new ArrayList<DataBean>();
-		ArrayList<DataBean> newList = new ArrayList<DataBean>();
-		
 		String name = req.getParameter("name");
 		String com = req.getParameter("comment");
 		SetToDB sdb = new SetToDB();
 		GetFromDB gdb = new GetFromDB();
-		DataBean nb = new DataBean(name, com, "Stockholm", 1);
+		DataBean nb = new DataBean("0", name, com, "Stockholm", "0");
 		SortFunctions sort = new SortFunctions();
 			
 		try {
 			sdb.writeBean(nb);
-			entireList = gdb.getDataFromDb();
+			highList = gdb.getDataFromDb();
+			sort.highestRating(highList);
+			newlist = gdb.getDataFromDb();
+			sort.newPosts(newlist);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		highList = sort.newPosts(entireList);
-		randomList = sort.random(entireList);
-		newList = sort.newPosts(entireList);
 
 		HttpSession session = req.getSession();
-		session.setAttribute("randomList", randomList);
+		session.setAttribute("newList", newlist);
 		session.setAttribute("highList", highList);
-		session.setAttribute("newList", newList);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(req, resp);
@@ -62,4 +56,6 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		super.doGet(req, resp);
 	}
+
+
 }

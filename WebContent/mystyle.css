@@ -6,8 +6,6 @@ body{
   	-o-background-size: cover;
 	background-repeat: no-repeat;
 	background-color:#009dfe;
-	min-width:1000px;
-	min-height:1000px;
 }
 h1{
 	font-size: 52px;
@@ -48,8 +46,7 @@ a{
 	font-family:Arial;
 	font-size: 14px;
 	color: black;
-	
-	
+	overflow-y: auto;
 }
 .apicontent{
 	float: left;
@@ -76,5 +73,3 @@ a{
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
-

@@ -1,59 +1,39 @@
 package se.webdev.ju15.model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-public class DataBean implements Comparable<DataBean>{
+public class DataBean {
 
 	int id = 0;
 	String name = "";
 	String message = "";
+	String date = "";
 	int votes = 0;
 	String location = "";
-	Integer compareVotes=0;
-	Integer compareId=0;
 
-	public Integer getCompareId() {
-		return compareId;
-	}
-
-	public void setCompareId(Integer compareId) {
-		this.compareId = compareId;
-	}
-
-	public DataBean(String name, String message,String location, int votes) {
-		System.out.println("inside bean");
+	public DataBean(String id, String name, String message,String location, String votes) {
 		this.name = name;
 		this.message = message;
 		this.location = location;
-		this.votes = votes;
-		System.out.println("inside bean");
+		try{
+			
+		this.id = Integer.parseInt(id);
+		this.votes = Integer.parseInt(votes);
 		
-	}
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println("Exception in databean constructor");
+		}
+		
 	
-	public DataBean(int id, String name, String message,String location, int votes) {
-		System.out.println("inside bean");
-		this.compareId=id;
-		this.name = name;
-		this.message = message;
-		this.location = location;
-		this.compareVotes = votes;
-		System.out.println("inside bean");
 	}
-	
-	public Integer getCompareVotes() {
-		return compareVotes;
-	}
-
-	public void setCompareVotes(Integer compareVotes) {
-		this.compareVotes = compareVotes;
+	public DataBean(){
+		
 	}
 
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return (Integer)(id);
 	}
 
 	/**
@@ -96,10 +76,29 @@ public class DataBean implements Comparable<DataBean>{
 	}
 
 	/**
+	 * @return the date
+	 */
+	public String getDate() {
+
+	
+
+		return "11/11/11";
+	}
+
+	/**
+	 * @param date
+	 *            the date to set
+	 */
+	public void setDate(String date) {
+
+		this.date = date;
+	}
+
+	/**
 	 * @return the votes
 	 */
 	public Integer getVotes() {
-		return votes;
+		return (Integer)(votes);
 	}
 
 	/**
@@ -127,11 +126,9 @@ public class DataBean implements Comparable<DataBean>{
 	public void voteForBean(){
 		votes += 1;
 	}
-
-	@Override
-	public int compareTo(DataBean db) {
-		int x = this.compareVotes.compareTo(db.compareVotes);
-		return x;
+	
+	public void hateBean(){
+		votes -= 1;
 	}
 	
 }

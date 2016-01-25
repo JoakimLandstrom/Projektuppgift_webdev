@@ -1,6 +1,7 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,66 +18,79 @@
 <title>Stockholm</title>
 
 </head>
-<script type="text/javascript" src="displayText.js"></script>
-<script type = "text/javascript" src = "main.js"></script>
-<body onload="gmapinit()">
+<body onload="gmapinit(); time();">
 
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "se.webdev.ju15.model.DataBean" %>
-<%@ page import = "se.webdev.ju15.Controller.Controller" %>
+	<%@ page import="java.util.ArrayList"%>
+	<%@ page import="se.webdev.ju15.model.DataBean"%>
+	<%@ page import="se.webdev.ju15.Controller.Controller"%>
 
-<%
-ArrayList<DataBean> highList = (ArrayList<DataBean>)(ArrayList<DataBean>) session.getAttribute("highList");
-ArrayList<DataBean> randomList = (ArrayList<DataBean>) session.getAttribute("randomList");
-ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
-%>
+	<%
+		ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
+		ArrayList<DataBean> highList = (ArrayList<DataBean>) session.getAttribute("highList");
+	%>
 
-<nav class="navbar navbar-default">
-	<h1>Stockholm diaries: </h1>
-		<div class=links>
-			<ul class="nav navbar-nav navbar-center">
-				<a href="#"><div>Stories</div></a>
-			</ul>
-			<a href="#"><div>Bars</div></a>
-			</ul>
-			<a href="#"><div>Clubs</div></a>
-			</ul>
-			<a href="#"><div>Restaurants</div></a>
-			</ul>
-			<a href="#"><div>Attractions</div></a>
-			</ul>
-			</ul>
-			<a href="#"><div></div></a>
-			</ul>
-			</ul>
-		</div>
+
+	<nav class="navbar navbar-default">
+	<h1>Stockholm diaries:</h1>
+	<div class=links>
+	<div id="clock"></div>
+		<ul class="nav navbar-nav navbar-center">
+			<a href="#"><div>Stories</div></a>
+		</ul>
+		<a href="#"><div>Bars</div></a>
+		</ul>
+		<a href="#"><div>Clubs</div></a>
+		</ul>
+		<a href="#"><div>Restaurants</div></a>
+		</ul>
+		<a href="#"><div>Attractions</div></a>
+		</ul>
+		</ul>
+		<a href="#"><div></div></a>
+		</ul>
+		</ul>
+	</div>
 	</div>
 	</nav>
-	
-		<div class="col-md-2 content" id="firstDiv">
-			<ul id="name">
-				<li class="title">Highest ratings:</li>
-				<li onclick="loadMessage();"><%= highList.get(0).getName() %></li><li>
-				<li><%= highList.get(1).getName() %></li>
-				<li><%= highList.get(2).getName() %></li>
-				<li class="title"><p>Recently added</p></li>
-				<li><%=newList.get(0).getName() %></li>
-				<li><%=newList.get(1).getName() %></li>
-				<li><%=newList.get(2).getName() %></li>
-				<li><%=newList.get(3).getName() %></li>
-				<li class="title"><p>Other comments:</p></li>
-				<li><%=randomList.get(0).getName() %></li>
-				<li><%=randomList.get(1).getName() %></li>
-				<li><%=randomList.get(2).getName() %></li>
-				<li><%=randomList.get(3).getName() %></li>
-			</ul>
-		</div>
-		
-		<div class="col-md-3 content" >
-			<p id="showText" onclick="hideMessage();"></p>
-		</div>
 
+	<div class="col-md-5 content">
+	
+	<ul>
+			<p>Highest rated posts</p>
+			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}">
+				<form action="/Projektuppgift_webdev/vote" method="POST" onClick="">
+					<input value="${current.id }" type="hidden" name="vote">
+					${current.votes }
+					<button value="up" name="upordown" type="submit">+</button>
+					<button value="down" name="upordown" type="submit">-</button>
+					${current.name}: ${ current.message } <br>
+				</form>
+					<br>
+			</c:forEach>
+		</ul>
+
+
+		<ul>
+			<p>New posts</p>
+			<c:forEach var="current" items="${sessionScope.newList}">
+				<form action="/Projektuppgift_webdev/vote" method="POST">
+					<input value="${current.id }" type="hidden" name="vote">
+					${current.votes }
+					<button value="up" name="upordown" type="submit">+</button>
+					<button value="down" name="upordown" type="submit">-</button>
+					${current.name}: ${ current.message } <br>
+				</form>
+				<br>
+			</c:forEach>
+		</ul>
+
+	</div>
+
+	<div class="col-md-4 content" >
+			<p id="showText"></p>
+		</div>
 	<div class="col-md-3 apicontent" id="map"></div>
+
 	
 	<div class="col-md-3 comments">
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
@@ -87,6 +101,6 @@ ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newLis
 		</form>
 	</div>
 	
-
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
