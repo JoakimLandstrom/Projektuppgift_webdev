@@ -2,15 +2,15 @@
  * @Author Joakim
  */
 
-var location = function (location){
-	
-	var array = [location];
-	
-	return array;	
-}
+//var location = function getLocation (location){
+//	
+//	var array = [location];
+//	array[1] = "lat : " + parseInt(array[1]);
+//	array[2] = "lng : " + parseInt(array[2]);
+//	return array;	
+//}
 
 function gmapinit() {
-
 	var latlng = {
 		lat : 59.32932,
 		lng : 18.06858
@@ -18,16 +18,16 @@ function gmapinit() {
 
 	var map = new google.maps.Map(document.getElementById("map"), {
 		center : latlng,
-		zoom : 9,
+		zoom : 11,
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	});
 	google.maps.event.addDomListener(window, 'load', gmapinit);
 
-	var marker = new google.maps.Marker({
-		position : location,
-		map : map
-	});
-	marker.setMap(map);
+//	var marker = new google.maps.Marker({
+//		position : location,
+//		map : map
+//	});
+//	marker.setMap(map);
 }
 
 function time() {

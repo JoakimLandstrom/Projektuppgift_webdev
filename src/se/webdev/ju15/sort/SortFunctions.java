@@ -19,7 +19,7 @@ public class SortFunctions {
 	
 	public ArrayList<DataBean> newPosts(ArrayList<DataBean> list) {
 		
-		Collections.sort(list, (o1, o2) -> o1.getId().compareTo(o2.getId()));
+		Collections.sort(list, (o1, o2) -> o2.getId().compareTo(o1.getId()));
 		
 		return list;
 	}

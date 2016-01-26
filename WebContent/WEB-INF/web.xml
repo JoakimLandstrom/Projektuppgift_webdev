@@ -43,5 +43,14 @@
 		<servlet-name>VoteController</servlet-name>
 		<url-pattern>/vote</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+    <servlet-name>GetMessage</servlet-name>
+    <servlet-class>se.webdev.ju15.Controller.GetMessage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetMessage</servlet-name>
+    <url-pattern>/message/*</url-pattern>
+  </servlet-mapping>
 
 </web-app>

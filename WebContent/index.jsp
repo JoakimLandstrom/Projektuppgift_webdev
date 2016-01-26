@@ -31,13 +31,13 @@
 
 
 	<nav class="navbar navbar-default">
-	<h1>Stockholm diaries:</h1>
-	<div class=links>
+	<p class="h1">Stockholm diaries:</p>
 	<div id="clock"></div>
+	<div class=links>
 		<ul class="nav navbar-nav navbar-center">
-			<a href="#"><div>Stories</div></a>
+			<a href="/Projektuppgift_webdev/show"><div>Stories</div></a>
 		</ul>
-		<a href="#"><div>Bars</div></a>
+		<a href=""><div>Bars</div></a>
 		</ul>
 		<a href="#"><div>Clubs</div></a>
 		</ul>
@@ -53,17 +53,20 @@
 	</div>
 	</nav>
 
-	<div class="col-md-5 content">
+	<div class="col-md-3 content">
 	
 	<ul>
 			<p>Highest rated posts</p>
-			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}">
-				<form action="/Projektuppgift_webdev/vote" method="POST" onClick="">
+			<c:forEach var="current" begin="0" end="2" items="${sessionScope.highList}" varStatus="loop">
+				<form action="/Projektuppgift_webdev/vote" method="POST" onclick="loadMessage('h'+'${loop.index}');">
+					<div>
 					<input value="${current.id }" type="hidden" name="vote">
 					${current.votes }
-					<button value="up" name="upordown" type="submit">+</button>
-					<button value="down" name="upordown" type="submit">-</button>
-					${current.name}: ${ current.message } <br>
+					<input class="delete" value="delete" name="upordown" type="submit">
+					<input class="up" value="up" name="upordown" type="submit">
+					<input class="down" value="down" name="upordown" type="submit">
+					${current.name}
+					</div>
 				</form>
 					<br>
 			</c:forEach>
@@ -72,13 +75,16 @@
 
 		<ul>
 			<p>New posts</p>
-			<c:forEach var="current" items="${sessionScope.newList}">
-				<form action="/Projektuppgift_webdev/vote" method="POST">
+			<c:forEach var="current" items="${sessionScope.newList}" varStatus="loop" begin="0" end="7">
+				<form action="/Projektuppgift_webdev/vote" method="POST" onclick="loadMessage('n'+'${loop.index}');">
 					<input value="${current.id }" type="hidden" name="vote">
+					<div>
 					${current.votes }
-					<button value="up" name="upordown" type="submit">+</button>
-					<button value="down" name="upordown" type="submit">-</button>
-					${current.name}: ${ current.message } <br>
+					<input class="delete" value="delete" name="upordown" type="submit">
+					<input class="up" value="up" name="upordown" type="submit">
+					<input class="down" value="down" name="upordown" type="submit">
+					${current.name}
+					</div> 
 				</form>
 				<br>
 			</c:forEach>
@@ -86,21 +92,21 @@
 
 	</div>
 
-	<div class="col-md-4 content" >
+	<div class="col-md-6 content" >
 			<p id="showText"></p>
-		</div>
+	</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 
 	
 	<div class="col-md-3 comments">
 		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
 			Be a part of the backpacker conversation: 
-			<div>Name:<br> <input type="text" name="name" maxlength="50"></div>
-			<div>Comment: <textarea rows="6" cols="100" name="comment"></textarea></div>
-			<input type="submit" name="submission">
-		</form>
+			<div>Title:<br> <input type="text" name="name" id="title" maxlength="24"></div>
+			<div>Comment: <textarea maxlength="1024" id="comment" name="comment" ></textarea></div>
 	</div>
-	
+	<div class ="col-md-3"><input class="submit" type="submit" name="submission"></div>
+	</form>
+	<script type="text/javascript" src="displayText.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

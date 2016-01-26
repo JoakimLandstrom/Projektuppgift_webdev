@@ -59,4 +59,26 @@ public class SetToDB {
 			}
 		}
 	}
+	
+	public void deleteFromDb(DataBean bean)throws SQLException{
+		Connection con = null;
+		Statement stmt = null;
+		
+		try{
+			Class.forName(DRIVER);
+			con  = DriverManager.getConnection(JDBC_URL);
+			con.createStatement().executeUpdate("DELETE FROM message WHERE id = " + bean.getId());
+		}catch(ClassNotFoundException n){
+			
+		}finally{
+			try{
+				if(stmt != null)
+					stmt.close();
+				if(con != null)con.close();
+			}catch(Exception e){
+				
+			}
+		}
+		
+	}
 }

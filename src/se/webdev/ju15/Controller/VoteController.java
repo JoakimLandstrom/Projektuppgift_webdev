@@ -37,11 +37,15 @@ public class VoteController extends HttpServlet {
 			for (DataBean dataBean : entirelist) {
 				if(objectId.equals(""+dataBean.getId())){
 					if(upordown.equals("up")){
-						dataBean.voteForBean();						
-					}else{
+						dataBean.voteForBean();	
+						sdb.updateDb(dataBean);
+					}else if(upordown.equals("down")){
 						dataBean.hateBean();
+						sdb.updateDb(dataBean);
+					}else{
+						sdb.deleteFromDb(dataBean);
 					}
-					sdb.updateDb(dataBean);
+					
 				}
 			}
 			newlist = gdb.getDataFromDb();

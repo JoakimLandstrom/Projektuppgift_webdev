@@ -1,54 +1,110 @@
 @CHARSET "ISO-8859-1";
-body{
+
+body {
 	background-image: url("pics/index.jpg");
 	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-repeat: no-repeat;
-	background-color:#009dfe;
+	background-color: #009dfe;
 }
-h1{
+
+form:hover {
+	cursor: pointer;
+}
+
+#clock {
 	font-size: 52px;
-	font-family:Arial;
+	font-family: Arial;
+	float: right;
 }
-.navbar-default{
+
+.h1 {
+	font-size: 52px;
+	font-family: Arial;
+	width: 30vw;
+	margin: 0px;
+	display: inline-block;
+}
+
+.navbar-default {
+	padding: 3vw;
 	margin: 0px;
 	text-align: left;
-	padding-left:16vw;
 	height: 17vh;
 	background-color: #c1bfbd;
-	opacity:.8;
-	
+	opacity: .8;
 }
-a{
+
+a {
 	float: left;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	font-size: 20px;
+	font-family: Arial;
+	text-decoration: none;
+	color: black;
 }
 
-.links{
+a:hover {
+	text-decoration: none;
+}
+
+.links {
 	margin-top: 1vw;
 	text-align: center;
 	display: inline-block;
 }
-#firstDiv{
+
+#firstDiv {
 	margin-left: 16vw;
 }
 
-.content{
+.up {
+	font-size: 0px;
+	background: url(pics/sprite-reddit.png) -83px -865px;
+	width: 20px;
+	height: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.down {
+	font-size: 0px;
+	background: url(pics/sprite-reddit.png) -41px -865px;
+	width: 20px;
+	height: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.delete {
+	font-size: 0px;
+	background: url(pics/sprite-reddit.png) -0px -712px;
+	width: 20px;
+	height: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.content {
 	background: rgba(0, 0, 0, 0.1);
 	background-color: #c1bfbd;
-	opacity:.8;
+	opacity: .9;
 	filter: blur(5px);
 	border-radius: 10px;
 	margin-top: 3vw;
 	height: 50vh;
-	font-family:Arial;
-	font-size: 14px;
+	font-family: Arial;
+	font-size: 16px;
 	color: black;
 	overflow-y: auto;
 }
-.apicontent{
+
+.apicontent {
 	float: left;
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
@@ -56,20 +112,50 @@ a{
 	height: 50vh;
 }
 
-#name{
+#name {
 	list-style-type: none;
 }
-.comments{
-	margin-left:15vw;
-	padding-bottom:2cm;
-	
+
+.comments {
+	color: white;
 }
-.comments form{
-	width:100%;
+
+#showText {
+	font-size: 20px;
 }
-.title{
-	font-family:Arial;
+
+.title {
+	font-family: Arial;
 	font-size: 18px;
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#title {
+	width: 100%;
+	color: black;
+	 box-shadow: inset 0 0 5px black;
+	 border: 0px; 
+	 border-radius: 0.3vw;
+}
+
+#comment {
+	width: 100%;
+	color: black;
+	height: 10vh;
+	overflow: auto;
+	 box-shadow: inset 0 0 5px black;
+	 border: 0px; 
+	 border-radius: 0.5vw;
+}
+
+.submit {
+	font-size: 0px;
+	background: url(pics/sprite-reddit.png) -27px -539px;
+	width: 65px;
+	height: 45px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 15vh;
 }
