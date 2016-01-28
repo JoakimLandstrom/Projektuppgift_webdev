@@ -52,5 +52,15 @@
     <servlet-name>GetMessage</servlet-name>
     <url-pattern>/message/*</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+		<servlet-name>Links</servlet-name>
+		<servlet-class>se.webdev.ju15.Controller.Links</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Links</servlet-name>
+		<url-pattern>/link/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>

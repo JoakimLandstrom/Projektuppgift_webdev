@@ -19,40 +19,29 @@
 
 </head>
 <body onload="gmapinit(); time();">
-
-	<%@ page import="java.util.ArrayList"%>
-	<%@ page import="se.webdev.ju15.bean.DataBean"%>
-	<%@ page import="se.webdev.ju15.Controller.Controller"%>
-
-	<%
-		ArrayList<DataBean> newList = (ArrayList<DataBean>) session.getAttribute("newList");
-		ArrayList<DataBean> highList = (ArrayList<DataBean>) session.getAttribute("highList");
-	%>
-
-
+<div class="col-md-12" style="padding:0px">
 	<nav class="navbar navbar-default">
-	<p class="h1">Stockholm diaries:</p>
-	<div id="clock"></div>
-	<div class=links>
+	<div class="col-md-4" style="padding:0px">
+	<p class="h1">Stockholm diaries</p>
+	</div>
+	
+	<div class="col-md-6 links">
 		<ul class="nav navbar-nav navbar-center">
-			<a href="/Projektuppgift_webdev/show"><div>Stories</div></a>
-		</ul>
-		<a href=""><div>Bars</div></a>
-		</ul>
-		<a href="#"><div>Clubs</div></a>
-		</ul>
-		<a href="#"><div>Restaurants</div></a>
-		</ul>
-		<a href="#"><div>Attractions</div></a>
-		</ul>
-		</ul>
-		<a href="#"><div></div></a>
-		</ul>
+		<a href="/Projektuppgift_webdev/show"><p class="linktext">Stories</p></a>
+		
+		<a><p class="linktext" onclick ="loadLinkMessage('b')">Bars</p></a>
+		
+		<a><p class="linktext" onclick ="loadLinkMessage('c')">Clubs</p></a>
+		
+		<a><p class="linktext" onclick ="loadLinkMessage('r')">Restaurants</p></a>
+		
+		<a><p class="linktext" onclick ="loadLinkMessage('a')" >Attractions</p></a>
+		
 		</ul>
 	</div>
-	</div>
+	<div id="clock"></div>
 	</nav>
-
+</div>
 	<div class="col-md-3 content">
 	
 	<ul>
@@ -92,7 +81,7 @@
 
 	</div>
 
-	<div class="col-md-6 content" >
+	<div class="col-md-6 content" onclick="hideMessage()">
 			<p id="showText"></p>
 	</div>
 	<div class="col-md-3 apicontent" id="map"></div>

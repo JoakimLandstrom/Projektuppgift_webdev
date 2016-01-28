@@ -1,5 +1,5 @@
 body {
-	background-image: url("pics/index.jpg");
+	background-image: url("pics/index1.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -13,9 +13,10 @@ a {
 }
 
 .navbar-default {
-	margin: 0px;
+	padding: 3%;
+	text-align: left;
 	height: 17vh;
-	background-color: #c1bfbd;
+	background-color: black;
 	opacity: .8;
 }
 
@@ -48,4 +49,13 @@ p {
 	color: white;
 	font-size: 25px;
 	display: inline-block;
+}
+
+.h1 {
+    font-size: 300%;
+    font-family: Arial;
+    margin: 0px;
+    display: inline-block;
+    text-align: left;
+    color: white;
 }
