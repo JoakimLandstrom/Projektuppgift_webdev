@@ -9,6 +9,12 @@ import java.sql.Statement;
 
 import se.webdev.ju15.bean.DataBean;
 
+/**
+ * 
+ * @author Joakim and Daniel
+ *
+ */
+
 public class SetToDB {
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:C:/Users/joaki/Desktop/Front-End/Projektuppgift_webdev/DB/TravelDb;create=true";

@@ -1,5 +1,11 @@
 package se.webdev.ju15.bean;
 
+/**
+ * 
+ * @author Joakim
+ *
+ */
+
 public class DataBean {
 
 	int id = 0;
@@ -123,9 +129,17 @@ public class DataBean {
 		this.location = location;
 	}
 	
+	/**
+	 * Increases the amount of votes by one.
+	 */
+	
 	public void voteForBean(){
 		votes += 1;
 	}
+	
+	/**
+	 * Decreases the amount of votes by one.
+	 */
 	
 	public void hateBean(){
 		votes -= 1;

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class GetMessage
+ * @author Joakim
  */
 @WebServlet("/Links")
 public class Links extends HttpServlet {

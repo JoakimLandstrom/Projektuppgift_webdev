@@ -2,13 +2,7 @@
  * @Author Joakim
  */
 
-//var location = function getLocation (location){
-//	
-//	var array = [location];
-//	array[1] = "lat : " + parseInt(array[1]);
-//	array[2] = "lng : " + parseInt(array[2]);
-//	return array;	
-//}
+
 
 function gmapinit() {
 	var latlng = {
@@ -22,12 +16,6 @@ function gmapinit() {
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	});
 	google.maps.event.addDomListener(window, 'load', gmapinit);
-
-//	var marker = new google.maps.Marker({
-//		position : location,
-//		map : map
-//	});
-//	marker.setMap(map);
 }
 
 function time() {

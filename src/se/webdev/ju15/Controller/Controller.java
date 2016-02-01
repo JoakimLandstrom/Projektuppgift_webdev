@@ -16,10 +16,15 @@ import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.db.SetToDB;
 import se.webdev.ju15.sort.SortFunctions;
 
+/**
+ * 
+ * @author Daniel
+ *
+ */
 public class Controller extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-		
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get request");

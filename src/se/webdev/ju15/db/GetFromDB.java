@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 import se.webdev.ju15.bean.DataBean;
 
+/**
+ * 
+ * @author Joakim and Daniel
+ *
+ */
 public class GetFromDB {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";

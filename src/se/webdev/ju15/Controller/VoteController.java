@@ -15,7 +15,11 @@ import se.webdev.ju15.bean.DataBean;
 import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.db.SetToDB;
 import se.webdev.ju15.sort.SortFunctions;
-
+/**
+ * 
+ * @author Joakim
+ *
+ */
 public class VoteController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,7 @@
-
+/**
+ * @author Daniel
+ * @param x
+ */
 function loadMessage(x) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -15,7 +18,10 @@ function loadMessage(x) {
 function hideMessage(){
 	document.getElementById("showText").innerHTML="";
 }
-
+/**
+ * @author Joakim
+ * @param y
+ */
 function loadLinkMessage(y){
 	var xhttp = new XMLHttpRequest();
 	

@@ -1,5 +1,7 @@
 @CHARSET "ISO-8859-1";
-
+/*
+@author Joakim
+*/
 body {
 	background-image: url("pics/index.jpg");
 	-webkit-background-size: cover;

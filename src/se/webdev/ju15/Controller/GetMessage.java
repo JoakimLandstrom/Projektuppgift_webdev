@@ -14,6 +14,7 @@ import se.webdev.ju15.bean.DataBean;
 
 /**
  * Servlet implementation class GetMessage
+ * @author Daniel
  */
 @WebServlet("/GetMessage")
 public class GetMessage extends HttpServlet {

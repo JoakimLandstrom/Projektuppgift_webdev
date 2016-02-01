@@ -5,6 +5,11 @@ import java.util.Collections;
 
 import se.webdev.ju15.bean.DataBean;
 
+/**
+ * 
+ * @author Joakim
+ *
+ */
 public class SortFunctions {
 
 	

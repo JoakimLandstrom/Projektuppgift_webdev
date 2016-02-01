@@ -6,19 +6,18 @@ import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import se.webdev.ju15.db.GetFromDB;
-import se.webdev.ju15.db.SetToDB;
 import se.webdev.ju15.bean.DataBean;
+import se.webdev.ju15.db.GetFromDB;
 import se.webdev.ju15.sort.SortFunctions;
 
 /**
  * Servlet implementation class Show
+ * @author Daniel
  */
 
 public class Show extends HttpServlet {
