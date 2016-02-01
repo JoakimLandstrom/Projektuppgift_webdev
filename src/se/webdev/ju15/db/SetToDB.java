@@ -21,7 +21,6 @@ public class SetToDB {
 	public static final String SQL_STATEMENT = "select * from message";
 
 	public void writeBean(DataBean db) throws SQLException {
-		System.out.println("Connected to db");
 		
 		Connection con = null;
 		Statement stmt = null;

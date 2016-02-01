@@ -10,31 +10,36 @@ body {
 	background-repeat: no-repeat;
 	background-color: #009dfe;
 }
-.linktext{
+
+.linktext {
 	float: left;
-	font-size: 150%;
 }
+
 
 form:hover {
 	cursor: pointer;
 }
-.linkimages{
-    padding-bottom: 20%;
+
+.linkimages {
+	padding-bottom: 20%;
 }
-.barimg{
+
+.barimg {
 	vertical-align: middle;
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
-.foodimg{
-    vertical-align: middle;
-    width: 100%;
-    height: auto;
+
+.foodimg {
+	vertical-align: middle;
+	width: 100%;
+	height: auto;
 }
-.discoimg{
-    vertical-align: middle;
-    width: 100%;
-    height: auto;
+
+.discoimg {
+	vertical-align: middle;
+	width: 100%;
+	height: auto;
 }
 
 #clock {
@@ -45,12 +50,12 @@ form:hover {
 }
 
 .h1 {
-    font-size: 300%;
-    font-family: Arial;
-    margin: 0px;
-    display: inline-block;
-    text-align: left;
-    color: white;
+	font-size: 300%;
+	font-family: Arial;
+	margin: 0px;
+	display: inline-block;
+	text-align: left;
+	color: white;
 }
 
 .navbar-default {
@@ -64,8 +69,8 @@ form:hover {
 a {
 	float: left;
 	padding-left: 1vw;
-	padding-right: 1vw;
-	font-size: 12px;
+	padding-right: 3vw;
+	font-size: 5vh;
 	font-family: Arial;
 	text-decoration: none;
 	color: white;
@@ -76,11 +81,12 @@ a:hover {
 }
 
 .links {
-    margin-top: 1vw;
-    text-align: center;
-    display: inline-block;
-    padding: 0px;
-    margin: 0px;
+	margin-top: 1vw;
+	margin-left: 5vw;
+	text-align: center;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
 }
 
 #firstDiv {
@@ -129,6 +135,11 @@ a:hover {
 	font-size: 16px;
 	color: white;
 	overflow-y: auto;
+
+}
+
+.main {
+	height: 73vh;
 }
 
 .apicontent {
@@ -136,7 +147,7 @@ a:hover {
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	margin-top: 3vw;
-	height: 50vh;
+	height: 73vh;
 }
 
 #name {
@@ -145,6 +156,8 @@ a:hover {
 
 .comments {
 	color: white;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 
 #showText {
@@ -161,9 +174,9 @@ a:hover {
 #title {
 	width: 100%;
 	color: black;
-	 box-shadow: inset 0 0 5px black;
-	 border: 0px; 
-	 border-radius: 0.3vw;
+	box-shadow: inset 0 0 5px black;
+	border: 0px;
+	border-radius: 0.3vw;
 }
 
 #comment {
@@ -171,22 +184,17 @@ a:hover {
 	color: black;
 	height: 10vh;
 	overflow: auto;
-	 box-shadow: inset 0 0 5px black;
-	 border: 0px; 
-	 border-radius: 0.5vw;
+	box-shadow: inset 0 0 5px black;
+	border: 0px;
+	border-radius: 0.5vw;
 }
 
-#showText{
+#showText {
 	padding: 0px;
 }
 
 .submit {
-	font-size: 0px;
-	background: url(pics/sprite-reddit.png) -27px -539px;
-	width: 65px;
-	height: 45px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	margin-top: 15vh;
+	margin: 0px;
+	margin-top: 1%;
+	width: 100%;
 }

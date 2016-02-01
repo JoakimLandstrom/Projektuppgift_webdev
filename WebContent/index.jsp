@@ -13,6 +13,7 @@
 	crossorigin="anonymous">
 <script src="http://use.edgefonts.net/poiret-one.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -28,22 +29,23 @@
 	
 	<div class="col-md-6 links">
 		<ul class="nav navbar-nav navbar-center">
-		<a href="/Projektuppgift_webdev/show"><p class="linktext">Stories</p></a>
+		<a href="/Projektuppgift_webdev/show"><i class="fa fa-align-justify linktext"></i></a>
 		
-		<a><p class="linktext" onclick ="loadLinkMessage('b')">Bars</p></a>
+		<a><i class="fa fa-beer linktext" onclick ="loadLinkMessage('b')"></i></a>
 		
-		<a><p class="linktext" onclick ="loadLinkMessage('c')">Clubs</p></a>
+		<a><i class="fa fa-glass linktext" onclick ="loadLinkMessage('c')"></i></a>
 		
-		<a><p class="linktext" onclick ="loadLinkMessage('r')">Restaurants</p></a>
+		<a><i class="fa fa-cutlery linktext" onclick="loadLinkMessage('r')"></i></a>
 		
-		<a><p class="linktext" onclick ="loadLinkMessage('a')" >Attractions</p></a>
+		<a><i class="fa fa-fort-awesome linktext"  onclick ="loadLinkMessage('a')"></i></a>
 		
 		</ul>
 	</div>
 	<div id="clock"></div>
 	</nav>
 </div>
-	<div class="col-md-3 content">
+<div class="col-md-3" style="padding: 0px">
+	<div class="col-md-12 content">
 	
 	<ul>
 			<p>Highest rated posts</p>
@@ -81,21 +83,21 @@
 		</ul>
 
 	</div>
-
-	<div class="col-md-6 content" onclick="hideMessage()">
+	<div class="col-md-12 comments">
+		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
+			Be a part of the backpacker conversation: 
+			<div>Title:<br> <input type="text" name="name" id="title" maxlength="24"></div>
+			<div>Comment: <textarea maxlength="1024" id="comment" name="comment" ></textarea></div>
+	<div class ="col-md-12" style="padding:0px"><input class="btn btn-primary submit" type="submit" name="submission"></div>
+	</form>
+	</div>
+</div>
+	<div class="col-md-6 content main" onclick="hideMessage()">
 			<p id="showText"></p>
 	</div>
 	<div class="col-md-3 apicontent" id="map"></div>
 
 	
-	<div class="col-md-3 comments">
-		<form action="/Projektuppgift_webdev/submit" method="POST" name="submission">
-			Be a part of the backpacker conversation: 
-			<div>Title:<br> <input type="text" name="name" id="title" maxlength="24"></div>
-			<div>Comment: <textarea maxlength="1024" id="comment" name="comment" ></textarea></div>
-	</div>
-	<div class ="col-md-3"><input class="submit" type="submit" name="submission"></div>
-	</form>
 	<script type="text/javascript" src="displayText.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
